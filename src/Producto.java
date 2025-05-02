@@ -5,5 +5,6 @@ abstract public class Producto {
     public int getSerie() {
         return serie;
     }
+
 }
 

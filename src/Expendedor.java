@@ -23,8 +23,13 @@ public class Expendedor {
 
         }
     }
-    public Bebida comprarBebida(Moneda m, int cual) {
-        if  (m == null) return null;
+
+    public Moneda getVuelto() {
+        return depositoVuelto.get();
+    }
+
+    public Producto comprarProducto(Moneda m, int cual) {
+        if (m == null) return null;
         int valor = m.getValor();
         Deposito<Bebida> depositoB = null;
         Deposito<Dulce> depositoD = null;
@@ -32,16 +37,56 @@ public class Expendedor {
             depositoB = depositoCoca;
         } else if (cual == SPRITE) {
             depositoB = depositoSprite;
-        }
-        else if (cual == Fanta) {
+        } else if (cual == Fanta) {
             depositoB = depositoFanta;
-        }
-        else if (cual == Chocolate) {
+        } else if (cual == Chocolate) {
             depositoD = depositoChocolate;
+        } else {
+            depositoVuelto.add(m);
         }
-        else {
-            depositoVuelto.add(m);}
 
-        return null;}
+        if (cual < 4) {
+            Bebida bebida = depositoB.get();
+            if (bebida == null) {
+                depositoVuelto.add(m);
+                return null;
+            }
+            if (valor < precio) {
+                depositoB.add(bebida);
+                depositoVuelto.add(m);
+                return null;
+            }
+            int cambio = valor - precio;
+            while (cambio <= 100) {
+                depositoVuelto.add(new Moneda100());
+                cambio = cambio - 100;
+            }
+            return bebida;
+
+        }
+
+        if (cual == 4) {
+            Dulce dulce = depositoD.get();
+            if (dulce == null) {
+                depositoVuelto.add(m);
+                return null;
+            }
+            if (valor < precio) {
+                depositoD.add(dulce);
+                depositoVuelto.add(m);
+                return null;
+            }
+            int cambio = valor - precio;
+            while (cambio >= 100) {
+                depositoVuelto.add(new Moneda100());
+                cambio = cambio - 100;
+            }
+
+
+            return dulce;
+        }
+        else return null;
+    }
 }
+
 
