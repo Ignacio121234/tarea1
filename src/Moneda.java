@@ -3,13 +3,11 @@ abstract class Moneda {
 
 
     public Moneda() {
-        this.serie = (int) (Math.random() * 100000); // numero de serie aleatorio
     }
 
-    public int getSerie() {
-        return serie;
 
-    }
+
+
     public abstract int getValor();
 }
 

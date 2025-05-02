@@ -1,5 +1,5 @@
 public class Comprador {
-    public Comprador(Moneda m,int product,Expendedor expend){
+    public Comprador(Moneda m,int product,Expendedor exp){
 
 
     }

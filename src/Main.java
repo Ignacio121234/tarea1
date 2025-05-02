@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Expendedor b =new Expendedor(5,500);
+        Comprador p = new Comprador(new Moneda1000(),4,b);
+
     }
 }
