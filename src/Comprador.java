@@ -1,9 +1,15 @@
-public class Comprador {
+public class Comprador  {
+    private String sabor=null;
+    String getsabor(){return sabor;}
 
     private int vuelto = 0;
     public Comprador(Moneda m,int product,Expendedor exp){
     Producto b = exp.comprarProducto(m,product);
     xdd = product;
+    if (b!=null){
+        sabor=QueProducto();
+    }
+
 
 
 
@@ -13,6 +19,7 @@ public class Comprador {
         }
 
     }
+
     private int xdd =0;
     String QueProducto(){
         if (xdd == 1 )
@@ -22,13 +29,14 @@ public class Comprador {
         else if (xdd==3)
             return "sprite";
         else if (xdd==4)
-            return "chocolate";
+            return "snicker";
         else
         return "null";
     }
-    public int cuantoVuelto() {
+     int cuantoVuelto() {
         return vuelto;
     }
+
 
 }
 

@@ -2,7 +2,7 @@ public class Expendedor {
     public static final int COCA = 1;
     public static final int SPRITE = 2;
     public static final int Fanta = 3;
-    public static final int Chocolate = 4;
+    public static final int snicker = 4;
 
     private Deposito<Bebida> depositoCoca = new Deposito<>();
     private Deposito<Bebida> depositoSprite = new Deposito<>();
@@ -19,7 +19,7 @@ public class Expendedor {
             depositoCoca.add(new Cocacola(serie++));
             depositoSprite.add(new Sprite(serie++));
             depositoFanta.add(new Fanta(serie++));
-            depositoChocolate.add(new Chocolate(serie++));
+            depositoChocolate.add(new snicker(serie++));
 
         }
     }
@@ -39,7 +39,7 @@ public class Expendedor {
             depositoB = depositoSprite;
         } else if (cual == Fanta) {
             depositoB = depositoFanta;
-        } else if (cual == Chocolate) {
+        } else if (cual == snicker) {
             depositoD = depositoChocolate;
         } else {
             depositoVuelto.add(m);
@@ -69,6 +69,7 @@ public class Expendedor {
             Dulce dulce = depositoD.get();
             if (dulce == null) {
                 depositoVuelto.add(m);
+                System.out.println("lol");
                 return null;
             }
             if (valor < precio) {

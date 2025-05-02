@@ -5,9 +5,9 @@ abstract public class Dulce extends Producto {
 
 }
 
- class Chocolate extends Dulce{
+ class snicker extends Dulce{
      private int serie;
-     public Chocolate(int NumSerie){this.serie=NumSerie;}
+     public snicker(int NumSerie){this.serie=NumSerie;}
 
      @Override
      public int getSerie() {
