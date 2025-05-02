@@ -3,6 +3,11 @@ public class Expendedor {
     public static final int SPRITE = 2;
     public static final int Fanta = 3;
     public static final int snicker = 4;
+    public static final int preciosnicker=500;
+    public static final int preciococa=200;
+    public static final int preciosprite=200;
+    public static final int preciofanta=200;
+
 
     private Deposito<Bebida> depositoCoca = new Deposito<>();
     private Deposito<Bebida> depositoSprite = new Deposito<>();
@@ -13,8 +18,8 @@ public class Expendedor {
 
     private int serie = 5;
 
-    public Expendedor(int numProductos, int precioProductos) {
-        this.precio = precioProductos;
+    public Expendedor(int numProductos) {
+
         for (int i = 0; i < numProductos; i++) {
             depositoCoca.add(new Cocacola(serie++));
             depositoSprite.add(new Sprite(serie++));
@@ -47,13 +52,20 @@ public class Expendedor {
 
         if (cual < 4) {
             Bebida bebida = depositoB.get();
+            if(cual == 1){precio=200;}
+            if(cual == 2){precio=200;}
+            if(cual == 3){precio=200;}
             if (bebida == null) {
                 depositoVuelto.add(m);
+                if(cual==1){System.out.println("no quedan Cocas");}
+                if(cual==2){System.out.println("no quedan sprites");}
+                if(cual==3){System.out.println("no quedan fantas");}
                 return null;
             }
             if (valor < precio) {
                 depositoB.add(bebida);
                 depositoVuelto.add(m);
+                System.out.println("precio excede el valor de la moneda");
                 return null;
             }
             int cambio = valor - precio;
@@ -61,20 +73,27 @@ public class Expendedor {
                 depositoVuelto.add(new Moneda100());
                 cambio = cambio - 100;
             }
+            if(cual==1){System.out.println("compro una cocacola");}
+            if(cual==2){System.out.println("compro una sprite");}
+            if(cual==3){System.out.println("compro una fanta");}
             return bebida;
 
         }
 
-        if (cual == 4) {
+        if (cual == 4 || cual==5) {
+            if(cual==4){precio=500;}
+            if(cual==5){precio=300;}
             Dulce dulce = depositoD.get();
             if (dulce == null) {
                 depositoVuelto.add(m);
-                System.out.println("lol");
+                System.out.println("no quedan snickers");
                 return null;
             }
             if (valor < precio) {
                 depositoD.add(dulce);
+                System.out.println();
                 depositoVuelto.add(m);
+                System.out.println("precio excede el valor de la moneda");
                 return null;
             }
             int cambio = valor - precio;
@@ -82,7 +101,7 @@ public class Expendedor {
                 depositoVuelto.add(new Moneda100());
                 cambio = cambio - 100;
             }
-
+            System.out.println("compro un snicker");
 
             return dulce;
         }
