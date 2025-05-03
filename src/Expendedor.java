@@ -8,12 +8,6 @@ public class Expendedor {
     public static final int snicker = 4;
     public static final int super8 = 5;
 
-    //definicion de los precios de los productos
-    public static final int preciosnicker=500;
-    public static final int preciosuper8=300;
-    public static final int preciococa=200;
-    public static final int preciosprite=200;
-    public static final int preciofanta=200;
 
     //creacion de los depositos de productos y monedas
     private Deposito<Bebida> depositoCoca = new Deposito<>();
@@ -66,7 +60,12 @@ public class Expendedor {
             depositoB = depositoFanta;
         } else if (cual == snicker) {
             depositoD = depositosnicker;
-        } else {
+        }
+        else if (cual == super8) {
+            depositoD = depositosuper8;
+
+        }
+        else {
             depositoVuelto.add(m);
         }
 
@@ -94,7 +93,7 @@ public class Expendedor {
                 return null;
             }
             int cambio = valor - precio;
-            while (cambio <= 100) {
+            while (cambio >= 100) {
                 depositoVuelto.add(new Moneda100());
                 cambio = cambio - 100;
             }

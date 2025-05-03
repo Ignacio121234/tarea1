@@ -11,7 +11,7 @@ public class Main {
         Comprador f = new Comprador(new Moneda1000(),4,b);
         Comprador g = new Comprador(new Moneda1000(),4,b);
         Comprador h = new Comprador(new Moneda1000(),4,b);
-        System.out.println(a.cuantoVuelto());
+        System.out.println(x.cuantoVuelto());
 
 
 
