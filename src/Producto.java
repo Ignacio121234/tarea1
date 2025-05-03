@@ -1,9 +1,9 @@
 abstract public class Producto {
-    private int serie;
+    private int serie;// Número de serie del producto
         public Producto(){}
-        public Producto(int NumSerie){this.serie=NumSerie;}
     public int getSerie() {
-        return serie;
+
+        return 0;
     }
 
 }

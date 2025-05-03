@@ -3,24 +3,18 @@ abstract public class Bebida extends Producto{
 }
 
 class Cocacola extends Bebida{
-    private int serie;
+    private int serie;// Numero de serie del producto
     public Cocacola(int NumSerie){this.serie=NumSerie;}
 
-    @Override
-    public int getSerie() {
-        return serie;
-    }
+
 
 }
 
 class Fanta extends Bebida{
-    private int serie;
-    public Fanta(int NumSerie){this.serie=NumSerie;}
+    private int serie;// Numero de serie del producto
+    public Fanta(int NumSerie){this.serie=NumSerie;}// Metodo que devuelve el numero de serie del producto
 
-    @Override
-    public int getSerie() {
-        return serie;
-    }
+
 
 
 
@@ -30,13 +24,9 @@ class Fanta extends Bebida{
 
 
 class Sprite extends Bebida{
-    private int serie;
-    public Sprite(int NumSerie){this.serie=NumSerie;}
+    private int serie;// Numero de serie del producto
+    public Sprite(int NumSerie){this.serie=NumSerie;}// Metodo que devuelve el numero de serie del producto
 
-    @Override
-    public int getSerie() {
-        return serie;
-    }
 
 
 

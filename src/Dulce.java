@@ -6,11 +6,16 @@ abstract public class Dulce extends Producto {
 }
 
  class snicker extends Dulce{
-     private int serie;
-     public snicker(int NumSerie){this.serie=NumSerie;}
+     private int serie;// Numero de serie del producto
+     public snicker(int NumSerie){this.serie=NumSerie;}// Metodo que devuelve el numero de serie del producto
 
-     @Override
-     public int getSerie() {
-         return serie;
-     }
+
+
  }
+class super8 extends Dulce{
+    private int serie;// Numero de serie del producto
+    public super8(int NumSerie){this.serie=NumSerie;}// Metodo que devuelve el numero de serie del producto
+
+
+
+}
